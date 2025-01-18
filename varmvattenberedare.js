@@ -4,7 +4,7 @@ let CONFIG = {
   UPDATE_INTERVAL: 60 * 1000,
   RELAY_ID: 0,
   NEXT_DAY_FETCH_HOUR: 17,
-  WEBHOOK_URL: '', // optional
+  WEBHOOK_URL: '',
   MIN_PRICE_THRESHOLD: 0.09
 };
 
@@ -135,7 +135,7 @@ let priceControl = {
         }
         
         msg += padNumber(h) + ':00 ' + 
-               (isOff ? 'OFF' : 'ON ') + ' ' +
+               (isOff ? 'HOFF' : 'ON ') + ' ' +
                price.toFixed(2) + ' SEK/kWh ' + 
                reason + '\n';
       }
@@ -163,7 +163,7 @@ let priceControl = {
     }
 
     if (this.lastState !== isOff) {
-      this.notify(padNumber(h) + ':00 - ' + (isOff ? 'OFF' : 'ON'));
+      this.notify(padNumber(h) + ':00 - ' + (isOff ? 'Heater OFF' : 'Heater ON'));
       this.lastState = isOff;
     }
 
